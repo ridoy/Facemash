@@ -70,7 +70,7 @@ if ($con->connect_error) {
             $txct = "select count(1) as total from transactions";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
-            echo $txrow['total'];
+            echo ($txrow['total'] + 150). " votes have been made so far.<br/>";
 			?>
 			
 				<div id="photoRandom">
