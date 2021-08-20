@@ -54,6 +54,10 @@ h1
     height: 150px;
 }
 
+#photoRandom-tiny img {
+    height: 50px;
+}
+
 #stats
 {
 	width: 1080px;
@@ -75,9 +79,8 @@ h1
 
 .image {
       background: #638596;
-
-  image-rendering: auto;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+      image-rendering: auto;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
 }
 
