@@ -78,13 +78,13 @@ if ($con->connect_error) {
 		</div>
 <br><br>
 <center>
-		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Rankings</strong></a>
+		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>The 50 Highest Rated Punks</strong></a>
 </center>
 
     <center>
     <?php
 	$i=1;
-	$query="Select * from photos  order by rating desc limit 200";
+	$query="Select * from photos  order by rating desc limit 50";
 	$sql=mysqli_query($con, $query);
     if ($con->connect_error) {
         echo "Error";
