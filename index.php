@@ -54,6 +54,7 @@ if ($con->connect_error) {
 				<strong>CryptoPunks: Hot or Not?</strong>
 			</p>
 			<h3>Obviously not all punks are created equal. Which of these two punks is the best?*</h3>
+			<h3>Click to vote</h3>
 			<?php
 
 			do{
@@ -77,7 +78,7 @@ if ($con->connect_error) {
 		</div>
 <br><br>
 <center>
-		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Check out the rankings here</strong></a>
+		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Rankings</strong></a>
 </center>
 
     <center>
