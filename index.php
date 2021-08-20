@@ -71,7 +71,7 @@ if ($con->connect_error) {
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
             $totaltx = $txrow[0] + 150;
-            echo $txrow;
+            echo $txrow[0];
 			?>
 			
 				<div id="photoRandom">
