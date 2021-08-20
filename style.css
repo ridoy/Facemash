@@ -71,6 +71,8 @@ h1
 }
 
 .image {
+      background: #638596;
+
   image-rendering: auto;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
