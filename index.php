@@ -67,11 +67,10 @@ if ($con->connect_error) {
 			$row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
             }while ($row2['id']==$row1['id']) ;
 			
-            $txct = "select count(1) from transactions";
+            $txct = "select count(1) as total from transactions";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
-            $totaltx = $txrow[0] + 150;
-            echo $txrow[0];
+            echo $txrow['total'];
 			?>
 			
 				<div id="photoRandom">
@@ -79,7 +78,7 @@ if ($con->connect_error) {
 					<p id="or">OR</p>
 					<a class="link2"href="vote.php?id2=<?php echo $row2['id'] ?>&amp;id1=<?php echo $row1['id'] ?>&amp;photo=second"><img class="image" src="images/<?php echo $row2['photo'] ?>" /></a>
 				</div>
-			<h4>*Let "best" be as loosely defined as possible.</h4>
+			<h4>* what constitutes "best" is up to you</h4>
 		</div>
 <br><br>
 <center>
