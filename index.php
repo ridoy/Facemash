@@ -1,6 +1,7 @@
 <?php
 
-$url = getenv('JAWSDB_URL');
+#$url = getenv('JAWSDB_URL');
+$url = 'mysql://w1jaetakwc8fwgoo:c5iy2v8eoxvw2dfi@ohunm00fjsjs1uzy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/lo4ev18e7ypkydsz';
 $dbparts = parse_url($url);
 
 $hostname = $dbparts['host'];
@@ -18,7 +19,7 @@ if ($con->connect_error) {
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Facemash</title>
+		<title>PUNKRANK</title>
 		<link rel="stylesheet" href="style.css" />
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -29,12 +30,12 @@ if ($con->connect_error) {
 
 	<body>
 		<div class="header">
-			<h1>FACEMASH</h1>
+			<h1>PUNKRANK</h1>
 		</div>
 
 		<div class="main_wrapper">
 			<p>
-				<strong>CryptoPunks Hot or Not</strong>
+				<strong>CryptoPunks: Hot or Not?</strong>
 			</p>
 			<h3>Obviously not all punks are created equal. Which of these two punks is the best?*</h3>
 			<?php
@@ -56,10 +57,11 @@ if ($con->connect_error) {
 					<p id="or">OR</p>
 					<a class="link2"href="vote.php?id2=<?php echo $row2['id'] ?>&amp;id1=<?php echo $row1['id'] ?>&amp;photo=second"><img class="image" src="images/<?php echo $row2['photo'] ?>" /></a>
 				</div>
+			<h4>*Let "best" be as loosely defined as possible.</h4>
 		</div>
 <br><br>
 <center>
-		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Rankings</strong></a>
+		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Check out the rankings here</strong></a>
 </center>
 	</body>
     <script>
