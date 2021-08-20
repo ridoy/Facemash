@@ -67,7 +67,7 @@ if ($con->connect_error) {
 			$row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
             }while ($row2['id']==$row1['id']) ;
 			
-            $txct = "select count(*) from transactions";
+            $txct = "select count(1) from transactions";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
             $totaltx = $txrow[0] + 150;
@@ -99,7 +99,7 @@ if ($con->connect_error) {
 		echo '<div id="photoRandom-small"><img class="image" src="images/'.$row['photo'].'"></br>';
 		echo "RANK : <b>".$i."</b><br>";
 		echo "Current rating : <b>".$row['rating']."</b><br>";
-        echo "<a href='https://www.larvalabs.com/cryptopunks/details/".$row['id']."'>About this Punk</a></div>";
+        echo "<a href='https://www.larvalabs.com/cryptopunks/details/".$row['id']."'>About Punk # ".$row['id']."</a></div>";
 		$i++;
 	}
 
