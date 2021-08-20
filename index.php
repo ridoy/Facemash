@@ -79,6 +79,23 @@ if ($con->connect_error) {
 <center>
 		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Check out the rankings here</strong></a>
 </center>
+
+    <?php
+	$i=1;
+	$query="Select * from photos  order by rating desc limit 200";
+	$sql=mysqli_query($con, $query);
+    if ($con->connect_error) {
+        echo "Error";
+    }
+	while($row=mysqli_fetch_array($sql, MYSQLI_ASSOC))
+	{	
+		echo '<div id="photoRandom-small"><img class="image" src="images/'.$row['photo'].'"></br>';
+		echo "RANK : <b>".$i."</b><br>";
+		echo "Current rating : <b>".$row['rating']."</b><br>";
+        echo "<a href='https://www.larvalabs.com/cryptopunks/details/".$row['id']."'>About this Punk</a></div>";
+		$i++;
+	}
+?>
 	</body>
     <script>
     </script>

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <div class="header">
-			<h1>punkrank</h1>
+			<a href="https://punk-rank.herokuapp.com/"><h1>punkrank</h1></a>
 </div>
 <?php
     $url = getenv('JAWSDB_URL');
@@ -16,7 +16,7 @@
     $con=mysqli_connect($hostname, $username, $password, $database);
 
 	$i=1;
-	$query="Select * from photos  order by rating desc limit 100";
+	$query="Select * from photos  order by rating desc limit 200";
 	$sql=mysqli_query($con, $query);
     if ($con->connect_error) {
         echo "Error";
