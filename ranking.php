@@ -27,6 +27,7 @@
 		echo " -----------------".$i." -----------------";
 		echo '<div id="photoRandom-small"><img class="image" src="images/'.$row['photo'].'"></br>';
 		echo "Current rating : <b>".$row['rating']."</b><br>";
+        echo "Details: https://www.larvalabs.com/cryptopunks/details/".$row['id']."</br>";
 		echo "</center>";
 		$i++;
 	}
