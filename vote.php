@@ -21,11 +21,15 @@ $query2="SELECT * from photos where id=".$id2;
 $sql2=mysqli_query($con, $query1);
 $row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
 
+
 $rA=$row1['rating'];
 $rB=$row2['rating'];
 
 $exA=1/(1+pow(10,(($rB-$rA)/400)));
 $exB=1/(1+pow(10,(($rA-$rB)/400)));
+
+$tx_query="INSERT INTO transactions (punk1, punk2, winner, punk1rating, punk2rating) values (".$id1.",".$id2.",".$winner.",".$rA.",".$rB.")";
+$tx=mysqli_query($con, $tx_query);
 
 if($winner=="first"){
     $k1=$row1['k'];
