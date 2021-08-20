@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <div class="header">
-			<h1>FACEMASH</h1>
+			<h1>punkrank</h1>
 </div>
 <?php
     $url = getenv('JAWSDB_URL');
@@ -25,7 +25,7 @@
 	{	
 		echo "<center>";
 		echo " -----------------".$i." -----------------";
-		echo '<div id="photoRandom"><img class="image" src="images/'.$row['photo'].'"></br>';
+		echo '<div id="photoRandom-small"><img class="image" src="images/'.$row['photo'].'"></br>';
 		echo "Current rating : <b>".$row['rating']."</b><br>";
 		echo "</center>";
 		$i++;

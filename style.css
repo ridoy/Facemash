@@ -35,17 +35,20 @@ h1
 	bottom: 148px;
 }
 
-#photoRandom img
-{
-	height: 300px;
-}
-
 #statistics
 {
 	position: absolute;
 	left: 0;
 	bottom: 0;
 	margin: 20px;
+}
+
+#photoRandom img {
+    height: 300px;
+}
+
+#photoRandom-small img {
+    height: 150px;
 }
 
 #stats
@@ -72,3 +75,4 @@ h1
   image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
+

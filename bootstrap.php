@@ -18,7 +18,7 @@ if ($con->connect_error) {
 }
 echo "Connection was successfully established!";
 
-for ($x = 3547; $x<10000;$x++) {
+for ($x = 6950; $x<10000;$x++) {
     $file = $x.'.png';
     $query = 'insert into photos (id, photo) values ('.$x.',"'.$file.'")';
         echo $query;
