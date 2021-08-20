@@ -80,6 +80,7 @@ if ($con->connect_error) {
 		<a href="ranking.php" class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>Check out the rankings here</strong></a>
 </center>
 
+    <center>
     <?php
 	$i=1;
 	$query="Select * from photos  order by rating desc limit 200";
@@ -95,7 +96,9 @@ if ($con->connect_error) {
         echo "<a href='https://www.larvalabs.com/cryptopunks/details/".$row['id']."'>About this Punk</a></div>";
 		$i++;
 	}
+
 ?>
+</center>
 	</body>
     <script>
     </script>
