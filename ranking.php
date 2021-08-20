@@ -5,24 +5,27 @@
 			<h1>FACEMASH</h1>
 </div>
 <?php
-	$con=mysql_connect("localhost","root","");
-	if(mysql_select_db("facemash"))
-	{
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
 
-	}
-	else{
-		echo "Error";
-	}
+    $hostname = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $database = ltrim($dbparts['path'],'/');
 
+    $con=mysqli_connect($hostname, $username, $password, $database);
 
 	$i=1;
-	$query="Select * from photos  order by rating desc";
-	$sql=mysql_query($query);
-	while($row=mysql_fetch_array($sql))
+	$query="Select * from photos  order by rating desc limit 50";
+	$sql=mysqli_query($con, $query);
+    if ($con->connect_error) {
+        echo "Error";
+    }
+	while($row=mysqli_fetch_array($sql, MYSQLI_ASSOC))
 	{	
 		echo "<center>";
 		echo " -----------------".$i." -----------------";
-		echo '<div id="photoRandom"><img src="images/'.$row['photo'].'"></br>';
+		echo '<div id="photoRandom"><img class="image" src="images/'.$row['photo'].'"></br>';
 		echo "Current rating : <b>".$row['rating']."</b><br>";
 		echo "</center>";
 		$i++;
