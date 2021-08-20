@@ -67,6 +67,11 @@ if ($con->connect_error) {
 			$row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
             }while ($row2['id']==$row1['id']) ;
 			
+            $txct = "select count(*) from transactions";
+			$txsql=mysqli_query($con, $txct);
+			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
+            $totaltx = $txrow + 150;
+            echo $totaltx . " votes have been placed so far.";
 			?>
 			
 				<div id="photoRandom">
