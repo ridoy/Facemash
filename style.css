@@ -48,6 +48,7 @@ h1
 }
 
 #photoRandom-small img {
+    margin: 10px;
     height: 150px;
 }
 
