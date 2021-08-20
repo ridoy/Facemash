@@ -46,9 +46,11 @@ h1
 #photoRandom img {
     height: 300px;
 }
-
-#photoRandom-small img {
+#photoRandom-small {
     margin: 10px;
+    display: inline-block;
+}
+#photoRandom-small img {
     height: 150px;
 }
 
