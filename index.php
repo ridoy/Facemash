@@ -1,7 +1,6 @@
 <?php
 
-#$url = getenv('JAWSDB_URL');
-$url = 'mysql://w1jaetakwc8fwgoo:c5iy2v8eoxvw2dfi@ohunm00fjsjs1uzy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/lo4ev18e7ypkydsz';
+$url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
 
 $hostname = $dbparts['host'];
@@ -25,6 +24,13 @@ if ($con->connect_error) {
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
+        <meta property="og:title" content="punkrank" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Vote on the coolest cryptopunks, destroy people's livelihoods" />
+        <meta property="og:image" content="https://punk-rank.herokuapp.com/images/1260.png" />
+        <meta property="twitter:title" content="punkrank - vote on cryptopunks" />
+        <meta property="twitter:description" content="Vote on the coolest cryptopunks, destroy people's livelihoods" />
+        <meta property="twitter:image" content="https://punk-rank.herokuapp.com/images/1260.png" />
 
 	</head>
 
