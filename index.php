@@ -70,7 +70,7 @@ if ($con->connect_error) {
             $txct = "select count(*) from transactions";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
-            $totaltx = $txrow + 150;
+            $totaltx = $txrow[0] + 150;
             echo $totaltx . " votes have been placed so far.";
 			?>
 			
