@@ -28,10 +28,8 @@ $rB=$row2['rating'];
 $exA=1/(1+pow(10,(($rB-$rA)/400)));
 $exB=1/(1+pow(10,(($rA-$rB)/400)));
 
-$tx_query="INSERT INTO transactions (punk1, punk2, winner, punk1rating, punk2rating) values (".$id1.",".$id2.",".$winner.",".$rA.",".$rB.")";
-echo $tx_query;
+$tx_query="INSERT INTO transactions (punk1, punk2, winner, punk1rating, punk2rating) values (".$id1.",".$id2.",'".$winner."',".$rA.",".$rB.")";
 $tx=mysqli_query($con, $tx_query);
-echo $tx->error;
 
 if($winner=="first"){
     $k1=$row1['k'];
@@ -144,8 +142,7 @@ elseif($winner=="second"){
 
 
 }
-
-#header('Location: index.php');
+header('Location: index.php');
 
 
 
