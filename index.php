@@ -37,10 +37,10 @@ if ($con->connect_error) {
         <meta property="og:title" content="punkrank" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Vote on the coolest cryptopunks, destroy people's livelihoods" />
-        <meta property="og:image" content="https://punk-rank.herokuapp.com/images/1260.png" />
+        <meta property="og:image" content="https://punk-rank.herokuapp.com/main.png" />
         <meta property="twitter:title" content="punkrank - vote on cryptopunks" />
         <meta property="twitter:description" content="Vote on the coolest cryptopunks, destroy people's livelihoods" />
-        <meta property="twitter:image" content="https://punk-rank.herokuapp.com/images/1260.png" />
+        <meta property="twitter:image" content="https://punk-rank.herokuapp.com/main.png" />
 
 	</head>
 
