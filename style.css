@@ -42,8 +42,12 @@ h1
 	margin: 20px;
 }
 
-#photoRandom img {
+#photoRandom .image {
     height: 300px;
+}
+
+#photoRandom .image-lg {
+    height: 400px;
 }
 #photoRandom-small {
     margin: 10px;
@@ -82,3 +86,6 @@ h1
       image-rendering: pixelated;
 }
 
+
+.image-lg {
+}

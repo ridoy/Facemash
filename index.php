@@ -28,7 +28,7 @@ if ($con->connect_error) {
     </script>
 
 		<meta charset="utf-8" />
-		<title>PUNKRANK</title>
+		<title>NFTRANK</title>
 		<link rel="stylesheet" href="style.css" />
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -46,10 +46,12 @@ if ($con->connect_error) {
 
 	<body>
 		<div class="header">
-			<h1>PUNKRANK</h1>
+			<h1>NFTRank</h1>
 		</div>
 
 		<div class="main_wrapper">
+            <a href="index.php">Vote on CryptoPunks</a>&nbsp;-&nbsp; 
+            <a href="fidenza.php">Vote on Fidenza</a>
 			<p>
 				<strong>CryptoPunks: Hot or Not?</strong>
 			</p>
@@ -67,16 +69,16 @@ if ($con->connect_error) {
 			$row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
             }while ($row2['id']==$row1['id']) ;
 			
-            $txct = "select count(1) as total from transactions";
+            $txct = "select count(1) as total from transactions where tbl='photos'";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
             echo ($txrow['total'] + 150). " votes have been made so far.<br/>";
 			?>
 			
 				<div id="photoRandom">
-					<a class="link1" href="vote.php?id1=<?php echo $row1['id'] ?>&amp;id2=<?php echo $row2['id'] ?>&amp;photo=first"><img class="image" src="images/<?php echo $row1['photo'] ?>" /></a>
+					<a class="link1" href="vote.php?table=photos&id1=<?php echo $row1['id'] ?>&amp;id2=<?php echo $row2['id'] ?>&amp;photo=first"><img class="image" src="images/<?php echo $row1['photo'] ?>" /></a>
 					<p id="or">OR</p>
-					<a class="link2"href="vote.php?id2=<?php echo $row2['id'] ?>&amp;id1=<?php echo $row1['id'] ?>&amp;photo=second"><img class="image" src="images/<?php echo $row2['photo'] ?>" /></a>
+					<a class="link2"href="vote.php?table=photos&id2=<?php echo $row2['id'] ?>&amp;id1=<?php echo $row1['id'] ?>&amp;photo=second"><img class="image" src="images/<?php echo $row2['photo'] ?>" /></a>
 				</div>
 			<h4>* what constitutes "best" is up to you</h4>
 		</div>

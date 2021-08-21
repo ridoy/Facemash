@@ -9,15 +9,16 @@ $database = ltrim($dbparts['path'],'/');
 
 $con=mysqli_connect($hostname, $username, $password, $database);
 
+$table = $_GET['table'];
 $winner=$_GET['photo'];
 $id1=$_GET['id1'];
 $id2=$_GET['id2'];
 
-$query1="SELECT * from photos where id=".$id1;
+$query1="SELECT * from ".$table." where id=".$id1;
 $sql1=mysqli_query($con, $query1);
 $row1=mysqli_fetch_array($sql1, MYSQLI_ASSOC);
 
-$query2="SELECT * from photos where id=".$id2;
+$query2="SELECT * from ".$table." where id=".$id2;
 $sql2=mysqli_query($con, $query1);
 $row2=mysqli_fetch_array($sql2, MYSQLI_ASSOC);
 
@@ -28,7 +29,7 @@ $rB=$row2['rating'];
 $exA=1/(1+pow(10,(($rB-$rA)/400)));
 $exB=1/(1+pow(10,(($rA-$rB)/400)));
 
-$tx_query="INSERT INTO transactions (punk1, punk2, winner, punk1rating, punk2rating) values (".$id1.",".$id2.",'".$winner."',".$rA.",".$rB.")";
+$tx_query="INSERT INTO transactions (punk1, punk2, winner, punk1rating, punk2rating, tbl) values (".$id1.",".$id2.",'".$winner."',".$rA.",".$rB.",'".$table."')";
 $tx=mysqli_query($con, $tx_query);
 
 if($winner=="first"){
@@ -36,24 +37,24 @@ if($winner=="first"){
     $rA=$rA + $k1*(1-$exA);
 
     if($rA>=0){
-        $sql = "UPDATE photos SET rating=".$rA."WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET rating=".$rA."WHERE id=".$id1;
     }
     else{
-        $sql = "UPDATE photos SET rating=0 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET rating=0 WHERE id=".$id1;
     }
 
 
     mysqli_query($con,$sql);
     if($rA>225){
-        $sql = "UPDATE photos SET k=10 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET k=10 WHERE id=".$id1;
         mysqli_query($con,$sql);
     }
     elseif($rA<=75){
-        $sql = "UPDATE photos SET k=25 WHERE id=".$id1;
+        $sql = "UPDATE  ".$table." SET k=25 WHERE id=".$id1;
         mysqli_query($con,$sql);
     }
     else{
-        $sql = "UPDATE photos SET k=15 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET k=15 WHERE id=".$id1;
         mysqli_query($con,$sql);
     }
 
@@ -63,24 +64,24 @@ if($winner=="first"){
     $rB=$rB + $k2*(0-$exA);
 
     if($rA>=0){
-        $sql = "UPDATE photos SET rating=".$rB."WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET rating=".$rB."WHERE id=".$id2;
     }
     else{
-        $sql = "UPDATE photos SET rating=0 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET rating=0 WHERE id=".$id2;
     }
 
     mysqli_query($con,$sql);
 
     if($rB>225){
-        $sql = "UPDATE photos SET k=10 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=10 WHERE id=".$id2;
         mysqli_query($con,$sql);
     }
     elseif($rB<=75){
-        $sql = "UPDATE photos SET k=25 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=25 WHERE id=".$id2;
         mysqli_query($con,$sql);
     }
     else{
-        $sql = "UPDATE photos SET k=15 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=15 WHERE id=".$id2;
         mysqli_query($con,$sql);
     }
 
@@ -92,24 +93,24 @@ elseif($winner=="second"){
     $rA=$rA + $k1*(0-$exA);
 
     if($rA>=0){
-        $sql = "UPDATE photos SET rating=".$rA."WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET rating=".$rA."WHERE id=".$id1;
     }
     else{
-        $sql = "UPDATE photos SET rating=0 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET rating=0 WHERE id=".$id1;
     }
 
     mysqli_query($con,$sql);
 
     if($rA>225){
-        $sql = "UPDATE photos SET k=10 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET k=10 WHERE id=".$id1;
     mysqli_query($con,$sql);
     }
     elseif($rA<=75){
-        $sql = "UPDATE photos SET k=25 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET k=25 WHERE id=".$id1;
     mysqli_query($con,$sql);
     }
     else{
-        $sql = "UPDATE photos SET k=15 WHERE id=".$id1;
+        $sql = "UPDATE ".$table." SET k=15 WHERE id=".$id1;
     mysqli_query($con,$sql);
     }
 
@@ -118,31 +119,36 @@ elseif($winner=="second"){
     $rB=$rB + $k2*(1-$exA);
 
     if($rA>=0){
-        $sql = "UPDATE photos SET rating=".$rB."WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET rating=".$rB."WHERE id=".$id2;
     }
     else{
-        $sql = "UPDATE photos SET rating=0 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET rating=0 WHERE id=".$id2;
     }
 
     mysqli_query($con,$sql);
 
     if($rB>225){
-        $sql = "UPDATE photos SET k=10 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=10 WHERE id=".$id2;
     mysqli_query($con,$sql);
     }
     elseif($rB<=75){
-        $sql = "UPDATE photos SET k=25 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=25 WHERE id=".$id2;
     mysqli_query($con,$sql);
     }
     else{
-        $sql = "UPDATE photos SET k=15 WHERE id=".$id2;
+        $sql = "UPDATE ".$table." SET k=15 WHERE id=".$id2;
     mysqli_query($con,$sql);
     }
 
 
 
 }
-header('Location: index.php');
+if ($table == 'fidenza') {
+    header('Location: fidenza.php');
+} else {
+    header('Location: index.php');
+}
+
 
 
 

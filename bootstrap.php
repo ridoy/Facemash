@@ -18,9 +18,9 @@ if ($con->connect_error) {
 }
 echo "Connection was successfully established!";
 
-for ($x = 6950; $x<10000;$x++) {
+for ($x = 0; $x<1000;$x++) {
     $file = $x.'.png';
-    $query = 'insert into photos (id, photo) values ('.$x.',"'.$file.'")';
+    $query = 'insert into fidenza (id, photo) values ('.$x.',"'.$file.'")';
         echo $query;
     if ($con->query($query) === TRUE) {
         echo $query;
@@ -29,8 +29,7 @@ for ($x = 6950; $x<10000;$x++) {
     }
 
 }
- */
 
+*/
 ?>
-
 
