@@ -50,12 +50,14 @@ if ($con->connect_error) {
 		</div>
 
 		<div class="main_wrapper">
-            <a href="index.php">Vote on CryptoPunks</a>&nbsp;-&nbsp; 
-            <a href="fidenza.php">Vote on Fidenza</a>
+            <div style="font-size: 20px">
+                <a href="index.php">Vote on CryptoPunks</a>&nbsp;-&nbsp; 
+                <a href="fidenza.php">Vote on Fidenza</a>
+            </div>
+            <h4>by <a href="http://twitter.com/mittendapper">@mittendapper</a></h4>
 			<p>
-				<strong>Fidenza: Hot or Not?</strong>
+				<strong>Obviously not all Fidenza are created equal. Which of these two is the best?*</strong>
 			</p>
-			<h3>Obviously not all Fidenza are created equal. Which of these two is the best?*</h3>
 			<h3>Click to vote</h3>
 			<?php
 
@@ -72,7 +74,7 @@ if ($con->connect_error) {
             $txct = "select count(1) as total from transactions where tbl='fidenza'";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
-            echo ($txrow['total']). " votes have been made so far.<br/>";
+            echo ($txrow['total']). " votes have been made so far.<br/><br/>";
 			?>
 			
 				<div id="photoRandom">
@@ -84,7 +86,7 @@ if ($con->connect_error) {
 		</div>
 <br><br>
 <center>
-        <h1 class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>The 50 Highest Rated Punks</strong></h1>
+        <h1 class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>The 50 Highest Rated Fidenza</strong></h1>
 		<!--<a href="ranking.php" class="rank" style="font-size:22px;"><strong>All Ratings</strong></a>-->
 </center>
 
@@ -101,7 +103,18 @@ if ($con->connect_error) {
 		echo '<div id="photoRandom-small"><img class="image" src="fidenza/'.$row['photo'].'"></br>';
 		echo "RANK : <b>".$i."</b><br>";
 		echo "Current rating : <b>".$row['rating']."</b><br>";
-        echo "<a href='https://www.larvalabs.com/cryptopunks/details/".$row['id']."'>About Punk # ".$row['id']."</a></div>";
+        $base_url = 'https://filter-blocks.netlify.app/token/78000';
+        $url = '';
+        $str_id = strval($row['id']);
+        if (strlen($str_id) == 1) {
+            $url = $base_url . "00" . $str_id;
+
+        } else if (strlen($str_id) == 2) {
+            $url = $base_url . "0" . $str_id;
+        } else {
+            $url = $base_url . $str_id;
+        }
+        echo "<a href='".$url."'>About Fidenza # ".$row['id']."</a></div>";
 		$i++;
 	}
 

@@ -50,12 +50,14 @@ if ($con->connect_error) {
 		</div>
 
 		<div class="main_wrapper">
-            <a href="index.php">Vote on CryptoPunks</a>&nbsp;-&nbsp; 
-            <a href="fidenza.php">Vote on Fidenza</a>
+            <div style="font-size: 20px">
+                <a href="index.php">Vote on CryptoPunks</a>&nbsp;-&nbsp; 
+                <a href="fidenza.php">Vote on Fidenza</a>
+            </div>
+            <h4>by <a href="http://twitter.com/mittendapper">@mittendapper</a></h4>
 			<p>
-				<strong>CryptoPunks: Hot or Not?</strong>
+				<strong>Obviously not all Punks are created equal. Which of these two is the best?*</strong>
 			</p>
-			<h3>Obviously not all punks are created equal. Which of these two punks is the best?*</h3>
 			<h3>Click to vote</h3>
 			<?php
 
@@ -72,7 +74,7 @@ if ($con->connect_error) {
             $txct = "select count(1) as total from transactions where tbl='photos'";
 			$txsql=mysqli_query($con, $txct);
 			$txrow=mysqli_fetch_array($txsql, MYSQLI_ASSOC);
-            echo ($txrow['total'] + 150). " votes have been made so far.<br/>";
+            echo ($txrow['total'] + 150). " votes have been made so far.<br/><br/>";
 			?>
 			
 				<div id="photoRandom">

@@ -1,6 +1,7 @@
 body
 {
 	margin: 0;
+	font-family: Verdana, "Trebuchet MS";
 }
 
 h1
@@ -50,6 +51,7 @@ h1
     height: 400px;
 }
 #photoRandom-small {
+	font-family: Times New Roman;
     margin: 10px;
     display: inline-block;
 }
