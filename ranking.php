@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <div class="header">
-			<a href="index.php"><h1>NFTRank</h1></a>
+			<h1>NFTRank</h1>
 </div>
 <?php
     $url = getenv('JAWSDB_URL');

@@ -86,8 +86,8 @@ if ($con->connect_error) {
 		</div>
 <br><br>
 <center>
-        <h1 class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>The 50 Highest Rated Fidenza</strong></h1>
-		<!--<a href="ranking.php" class="rank" style="font-size:22px;"><strong>All Ratings</strong></a>-->
+        <h1 class="rank" style="text-decoration:none;color:#000;font-size:25px;"><strong>LEADERBOARD: Top 50</strong></h1>
+		<a href="fidenzaranking.php" class="rank" style="font-size:22px;"><strong>All Ratings</strong></a>
 </center>
 
     <center>
